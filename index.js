@@ -20,12 +20,13 @@ const rollbar = new Rollbar({
 app.get('/', (req, res)=>{
     res.sendFile(path.join(__dirname, '/public/index.html'))
     rollbar.info('html file served successfully.')
+    rollbar.warning('Too many looks!')
 })
 
-app.get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname, '/public/index.html'))
-    rollbar.log('Your page has been looked at.')
-})
+// app.get('/', (req, res)=>{
+//     res.sendFile(path.join(__dirname, '/public/index.html'))
+//     rollbar.log('Your page has been looked at.')
+// })
 
 const port = process.env.PORT || 4321
 
