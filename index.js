@@ -3,6 +3,9 @@ const path = require('path')
 
 const app = express()
 
+const itemsList=[
+    {name: "This is an item."},{name: "This is another item."}
+]
 
 app.use(express.json())
 
@@ -28,6 +31,12 @@ app.get('/', (req, res)=>{
 app.get('/js', (req, res)=>{
     res.sendFile(path.join(__dirname, './main.js'))
 })
+
+app.get('/api/items', (req, res)=>{
+    rollbar.log('Item list sent.', {author: 'Senad', type: 'Manual Entry'})
+    res.status(200).send(itemsList)
+})
+
 
 // app.get('/', (req, res)=>{
 //     res.sendFile(path.join(__dirname, '/public/index.html'))
