@@ -21,6 +21,8 @@ app.get('/', (req, res)=>{
     res.sendFile(path.join(__dirname, '/public/index.html'))
     rollbar.info('html file served successfully.')
     rollbar.warning('Too many looks!')
+    rollbar.critical('Carefull you will get sooo many looks!')
+
 })
 
 // app.get('/', (req, res)=>{
