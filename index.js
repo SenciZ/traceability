@@ -25,6 +25,10 @@ app.get('/', (req, res)=>{
 
 })
 
+app.get('/js', (req, res)=>{
+    res.sendFile(path.join(__dirname, './main.js'))
+})
+
 // app.get('/', (req, res)=>{
 //     res.sendFile(path.join(__dirname, '/public/index.html'))
 //     rollbar.log('Your page has been looked at.')
