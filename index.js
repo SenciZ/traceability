@@ -37,6 +37,16 @@ app.get('/api/items', (req, res)=>{
     res.status(200).send(itemsList)
 })
 
+app.post('/api/items', (req, res)=>{
+    rollbar.log('Item added', {author: 'Senad', type: 'Manual Entry'})
+    newMovie = req.body
+    itemsList.push(newMovie)
+    res.status(200).send(itemsList)
+})
+
+
+
+
 
 // app.get('/', (req, res)=>{
 //     res.sendFile(path.join(__dirname, '/public/index.html'))
