@@ -15,11 +15,16 @@ const rollbar = new Rollbar({
 })
 
 // record a generic message and send it to Rollbar
-rollbar.log('Hello world!')
+// rollbar.log('Hello world!')
 
 app.get('/', (req, res)=>{
     res.sendFile(path.join(__dirname, '/public/index.html'))
     rollbar.info('html file served successfully.')
+})
+
+app.get('/', (req, res)=>{
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+    rollbar.log('Your page has been looked at.')
 })
 
 const port = process.env.PORT || 4321

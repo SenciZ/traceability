@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/SenciZ/traceability#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "express": "^4.17.1",
     "rollbar": "^2.24.0"
   }
