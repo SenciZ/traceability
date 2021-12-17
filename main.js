@@ -32,7 +32,11 @@ function addItem(e){
     axios.post('/api/items', itemObj)
     // console.log(itemObj)
     .then(getAllItems)
-    .catch(err => console.log(err))
+    .catch(err => {
+        console.log(err)
+        console.log(res)
+        console.log(res.data)
+    })
     newItem.value=''
 }
 
