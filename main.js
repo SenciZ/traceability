@@ -4,7 +4,7 @@ itemForm.addEventListener('submit', addItem)
 const listOfItems = document.getElementById('listOfItems')
 
 
-function addItemToMyList(arr){
+function renderList(arr){
     // alert('clicked')
     for(let i =0; i<arr.length; i++){
         const li = document.createElement('li')
@@ -17,7 +17,7 @@ function addItemToMyList(arr){
 function getAllItems(){
     listOfItems.textContent=''
     axios.get('/api/items')
-        .then(res=> {addItemToMyList(res.data)})
+        .then(res=> {renderList(res.data)})
         .catch(err => console.log(err))
 }
 

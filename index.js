@@ -32,6 +32,10 @@ app.get('/js', (req, res)=>{
     res.sendFile(path.join(__dirname, './main.js'))
 })
 
+app.get('/css', (req, res)=>{
+    res.sendFile(path.join(__dirname, './style.css'))
+})
+
 app.get('/api/items', (req, res)=>{
     rollbar.log('Item list sent.', {author: 'Senad', type: 'Manual Entry'})
     res.status(200).send(itemsList)
@@ -54,5 +58,6 @@ app.post('/api/items', (req, res)=>{
 // })
 
 const port = process.env.PORT || 4321
+app.use(rollbar.errorHandler())
 
 app.listen(port, ()=>{console.log(`Listening on ${port}`)})
