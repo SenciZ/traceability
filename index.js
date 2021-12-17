@@ -42,10 +42,16 @@ app.get('/api/items', (req, res)=>{
 })
 
 app.post('/api/items', (req, res)=>{
-    rollbar.log('Item added', {author: 'Senad', type: 'Manual Entry'})
     newMovie = req.body
-    itemsList.push(newMovie)
-    res.status(200).send(itemsList)
+    if(newMovie.name = ''){
+        rollbar.critical('Name was not provided', {author: 'Senad', type: 'Manual Entry'})
+        res.status(500).send("Need to provide a name")
+
+    } else {
+        rollbar.info('Name was added', {author: 'Senad', type: 'Manual Entry'})
+        itemsList.push(newMovie)
+        res.status(200).send(itemsList)
+    }
 })
 
 
