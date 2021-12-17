@@ -43,7 +43,7 @@ app.get('/api/items', (req, res)=>{
 
 app.post('/api/items', (req, res)=>{
     newMovie = req.body
-    if(newMovie.name = ''){
+    if(!newMovie.name){
         rollbar.critical('Name was not provided', {author: 'Senad', type: 'Manual Entry'})
         res.status(500).send("Need to provide a name")
 
