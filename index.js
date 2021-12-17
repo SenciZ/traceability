@@ -33,7 +33,7 @@ app.get('/js', (req, res)=>{
 })
 
 app.get('/css', (req, res)=>{
-    res.sendFile(path.join(__dirname, './style.css'))
+    res.sendFile(path.join(__dirname, './public/style.css'))
 })
 
 app.get('/api/items', (req, res)=>{
